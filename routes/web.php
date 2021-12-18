@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/deneme',function (){
+    return view('front.layouts.master');
+});
+
+Route::middleware([])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
