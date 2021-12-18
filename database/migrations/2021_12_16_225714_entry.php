@@ -6,24 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 class Entry extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('entry', function (Blueprint $table) {
+        Schema::create('entries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('title_id');
             $table->longText('content');
             $table->timestamps();
 
-            $table->foreign('title_id')->references('id')->on('titles')->onDelete('cascade');
-
+            $table->foreign('title_id')->references('id')->on('titles');
         });
 
-        Schema::table('entry', function(Blueprint $table) {
+        Schema::table('entries', function(Blueprint $table) {
             //
 
         });
@@ -37,6 +31,6 @@ class Entry extends Migration
      */
     public function down()
     {
-            Schema::dropIfExists('entry');
+            Schema::dropIfExists('entries');
     }
 }
