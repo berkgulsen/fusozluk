@@ -13,7 +13,7 @@ class Title extends Migration
      */
     public function up()
     {
-        Schema::create('title', function (Blueprint $table) {
+        Schema::create('titles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('slug');

@@ -19,7 +19,7 @@ class Entry extends Migration
             $table->longText('content');
             $table->timestamps();
 
-            $table->foreign('title_id')->references('id')->on('title')->onDelete('cascade');
+            $table->foreign('title_id')->references('id')->on('titles')->onDelete('cascade');
 
         });
 
