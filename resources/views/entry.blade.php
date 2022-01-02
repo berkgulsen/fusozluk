@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <blockquote class="blockquote mb-0">
                         <p>{!! $entry->content !!}</p>
-                        <footer class="blockquote-footer float-end">author will write here</footer>
+                        <footer class="blockquote-footer float-end">{{$entry->getuser->name}}</footer>
                     </blockquote>
                 </div>
             </div>
