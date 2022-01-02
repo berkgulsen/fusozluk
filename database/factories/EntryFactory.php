@@ -13,6 +13,7 @@ class EntryFactory extends Factory
     {
         return [
             'title_id' => $this->faker->numberBetween(1,10),
+            'user_id' => $this->faker->numberBetween(1,10),
             'content' => $this->faker->sentence(100),
             'created_at'=>$this->faker->dateTime($max = 'now')
 
