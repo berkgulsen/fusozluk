@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -22,6 +23,15 @@ class AuthController extends Controller
             return redirect()->route('homepage');
         }
         return redirect()->route('login')->withErrors('Hata!');
+    }
+
+    public function registerPost(Request $request){
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password =Hash::make($request->password);
+        $user->save();
+        return redirect()->route('homepage');
     }
 
     public function logout(){

@@ -11,6 +11,7 @@ Route::middleware(['isLogin'])->group(function (){
     Route::get('/login','App\Http\Controllers\AuthController@login')->name('login');
     Route::post('/login','App\Http\Controllers\AuthController@loginPost')->name('login.post');
     Route::get('/register','App\Http\Controllers\AuthController@register')->name('register');
+    Route::post('/register','App\Http\Controllers\AuthController@registerPost')->name('register.post');
 });
 Route::middleware(['isNotLogin'])->get('/logout','App\Http\Controllers\AuthController@logout')->name('logout');
 
