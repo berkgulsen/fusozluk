@@ -21,7 +21,7 @@ class Homepage extends Controller
     public function entry($slug){
         $title=Title::whereSlug($slug)->first();
         $data['title']=$title;
-        $data['entries']=Entry::where('title_id',$title->id)->orderBy('created_at','DESC')->paginate(5);
+        $data['entries']=Entry::where('title_id',$title->id)->orderBy('created_at','ASC')->paginate(5);
         return view('entry',$data);
     }
 }

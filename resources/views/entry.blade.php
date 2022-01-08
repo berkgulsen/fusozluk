@@ -22,4 +22,5 @@
         <div class="d-flex justify-content-center">
             {{ $entries->links() }}
         </div>
+    @include('widget.entrypostwidget')
 @endsection

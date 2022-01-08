@@ -13,7 +13,10 @@ Route::middleware(['isLogin'])->group(function (){
     Route::get('/register','App\Http\Controllers\AuthController@register')->name('register');
     Route::post('/register','App\Http\Controllers\AuthController@registerPost')->name('register.post');
 });
-Route::middleware(['isNotLogin'])->get('/logout','App\Http\Controllers\AuthController@logout')->name('logout');
+Route::middleware(['isNotLogin'])->group(function (){
+    Route::get('/logout','App\Http\Controllers\AuthController@logout')->name('logout');
+    Route::post('/comment','App\Http\Controllers\EntryController@entryPost')->name('entry.post');
+});
 
 Route::get('/dashboard', function () {
         return view('back.homepage');
