@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -26,10 +27,15 @@ class AuthController extends Controller
     }
 
     public function registerPost(Request $request){
+        $request->validate([
+            'name'=>'min:8',
+            'password'=>'min:8'
+        ]);
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password =Hash::make($request->password);
+        $user->remember_token = $request->_token;
         $user->save();
         return redirect()->route('homepage');
     }
