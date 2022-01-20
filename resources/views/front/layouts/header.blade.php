@@ -10,6 +10,8 @@
     <link rel="icon" type="image/x-icon" href="{{asset('front/')}}/assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{asset('front/')}}/css/styles.css" rel="stylesheet" />
+    <link href="{{asset('back/')}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 <div class="d-flex" id="wrapper">

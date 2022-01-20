@@ -16,6 +16,7 @@ Route::middleware(['isLogin'])->group(function (){
 Route::middleware(['isNotLogin'])->group(function (){
     Route::get('/logout','App\Http\Controllers\AuthController@logout')->name('logout');
     Route::post('/comment','App\Http\Controllers\EntryController@entryPost')->name('entry.post');
+    Route::get('/myEntries','App\Http\Controllers\Homepage@myEntries')->name('myEntries');
 });
 
 Route::get('/dashboard', function () {

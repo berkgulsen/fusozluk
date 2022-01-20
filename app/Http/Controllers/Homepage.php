@@ -24,4 +24,10 @@ class Homepage extends Controller
         $data['entries']=Entry::where('title_id',$title->id)->orderBy('created_at','ASC')->paginate(5);
         return view('entry',$data);
     }
+
+    public function myEntries(){
+        $myEntries=Entry::Where('user_id',\Illuminate\Support\Facades\Auth::user()->id)->orderBy('created_at','DESC')->get();
+        $data['myEntries']=$myEntries;
+        return view('myEntries',$data);
+    }
 }
