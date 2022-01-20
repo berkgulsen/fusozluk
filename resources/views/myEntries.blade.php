@@ -1,4 +1,5 @@
 @extends('front.layouts.master')
+@section('title','Entrylerim')
 @section('content')
     @include('widget.titlewidget')
     @include('widget.topnavwidget')
