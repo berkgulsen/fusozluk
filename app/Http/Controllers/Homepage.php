@@ -26,7 +26,7 @@ class Homepage extends Controller
     }
 
     public function myEntries(){
-        $myEntries=Entry::Where('user_id',\Illuminate\Support\Facades\Auth::user()->id)->orderBy('created_at','DESC')->get();
+        $myEntries=Entry::Where('user_id',\Illuminate\Support\Facades\Auth::user()->id)->orderBy('created_at','DESC')->paginate(14);
         $data['myEntries']=$myEntries;
         return view('myEntries',$data);
     }
